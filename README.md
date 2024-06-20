@@ -287,7 +287,7 @@ In these experiments, different amounts of noise, imbalance rate and concept dri
 
 The first scenario is the main work presented in this thesis. As a result, ACDWM and DWMIL algorithms are stronger than DUE and KUE. The standard deviation of ACDWM and DWMIL algorithms is lower than DUE and KUE on activity detection datasets in the first scenario. So, ACDWM and DWMIL are more robust than the other two algorithms. In addition, the ACDWM algorithm is more robust than the DWMIL algorithm with a lower standard deviation than DWMIL on activity detection datasets.
 
-![Scenario 1](images/scenrio1.png)
+![Scenario 1](images/scenario1.png)
 2. The second scenario
 
 ACDWM has better robustness on activity detection datasets based on the standard deviation of the algorithm.
