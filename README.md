@@ -33,11 +33,10 @@ Research purposes
 
 ## Datasets
 
-1. Skoda
-
+**1. Skoda**
 This dataset includes 10 movements performed in car maintenance scenarios. 20 sensors are placed in the left and right arm of the person. It also includes 3D acceleration features for each sensor. Each movement is repeated about 70 times.
 31 activity classes have been selected in this dataset. All activity classes include the movement of the user's hand(s) or arm(s) captured using a distributed set of 5 inertial sensors. These modules are integrated into the person's cover and are aligned with the upper body. In the original article, only a subset of six activity classes, including opening the engine hood, closing the engine door, opening the trunk, checking the hinges of the trunk, closing the trunk, and checking the fuel tank cap, were selected for analysis.
-2. WISDM
+**2. WISDM**
 
 WISDM is collected using accelerometers embedded in phones. A phone is placed in the front pockets of each person's pants. Six regular activities of walking, running, climbing stairs, descending stairs, sitting and standing are considered.
 To collect data for supervised learning, a large number of users were required to carry an Android-based smartphone while performing some daily activities. Then, 29 volunteers were asked to help carry a smartphone while performing a series of activities. The subjects carried an Android phone in the front pocket of their pants and were asked to walk, jog, climb stairs, descend stairs, sit, and stand for specific periods of time.
@@ -47,7 +46,7 @@ Data collection was controlled by an app on the mobile phone. The program, throu
 In this study, six activities of walking, running, climbing stairs, descending stairs, sitting and standing are considered. These activities have been chosen due to their regular implementation by a large number of people in their daily routine. These activities include movements that often occur for significant periods of time, so they are easier to identify. In addition, most of these activities include repetitive movements that make them easier to recognize. The acceleration data of each of these activities is recorded in three axes. The Tz axis records the movement of the front leg and the y axis records the up and down movement. The x-axis records the horizontal movement of the user's foot. Figure shows these axes for a user.
 
 ![Acceleration in axes of WISDM dataset](images/Acceleration_WISDM.png)
-3. HCI
+**3. HCI**
 
 HCI focuses on the changes caused by the displacement of sensors. The movements include arm or hand movements that describe the different shapes of an upward triangle, an inverted triangle, and a circle. Eight sensors are attached to the right lower arm of each person. Each movement is recorded for more than 50 repetitions and each repetition lasts for 5 to 8 seconds.
 In this data set, the acceleration of the left leg is recorded for six different normal aerobic movements as shown in figure below.
@@ -64,7 +63,7 @@ For the data of each sensor, the acceleration magnitude was calculated and the m
 Also, there is less similarity between the position of sensors 5 and 6, even if they are adjacent, because they are located in different parts of the same organ. For places 4, 5 and 7-10, we can see very strong overlaps between the "flips" and "movement above two knees" classes. There are also very strong overlaps between the "jumping jacks" and "superman jumps" classes for all sensor positions.
 
 ![Different classes of activities in HCI dataset](images/Different%20classes%20of%20activities%20in%20HCI%20dataset.png)
-4. PS
+**4. PS**
 PS data was collected with four smartphones in four body positions. Smartphones were equipped with accelerometer, magnetometer and gyroscope. Four participants were asked to perform six activities of walking, running, sitting, standing, walking up and down stairs for several minutes.
 
 First, the program was launched on all four smartphones, and then they were placed in four body positions of a participant. After completing the activity, they were removed from the participant's body and the program was stopped. This action caused noise (abnormal spikes) at the beginning and end of each activity. These noisy parts were removed before data analysis.
@@ -108,20 +107,19 @@ The imbalance rate here refers to the percentage of samples in the positive clas
 The datasets used are as follows:
 
 ![datasets](images/datasets.png)
-
-1. Skoda mini checkpoint dataset
+**1. Skoda mini checkpoint dataset**
 
 this dataset contains 10 movements performed in the car maintenance scenario. It has 20 3D acceleration sensors (60 features) and there are segmented and continuous samples in the dataset.
-2. HCI gestures dataset
+**2. HCI gestures dataset**
 
 This data set is obtained by performing 5 free or guided hand movements in front of the blackboard. It has 8 3D acceleration sensors (24 features) and there are segmented and continuous samples in the dataset.
-3. HCI Tabletop Gestures dataset
+**3. HCI Tabletop Gestures dataset**
 
 To collect this data set, 9 writing movements using the palm alphabet in 3 sizes and on several touch surfaces have been examined, using the mouse while sitting and standing, using A standing tablet includes the use of a sitting and standing touch table.
-4. WISDM data set
+**4. WISDM data set**
 
 In collecting this data set, the raw data of the accelerometer and gyroscope sensor are collected from smart phones and smart watches at a rate of 20 Hz. This dataset was collected from 51 subjects. They do 18 activities for 3 minutes. Sensor data is stored in a different directory for each device (phone or watch) and each sensor type (accelerometer or gyroscope); So there are 4 data lists. There are 51 files related to 51 exam topics in each directory. The format of each entry is the same. In addition to the raw timeseries sensor data, examples are also produced that describe the sensor data using a window of 10 seconds.
-5. Opportunity dataset
+**5. Opportunity dataset**
 
 This dataset is used to detect human activity with wearable, object and environmental sensors. This dataset has been created as a benchmark for human activity detection algorithms, such as automatic data classification and segmentation and consists of 6 runs per user from 4 users. Of these runs, 5 are daily life activities, and the sixth run is a practice run in which users perform a sequence of activities. Wearable sensors include 7 inertial measurement units, 12 3D acceleration sensors, 4 3D localization sensors. Object sensors collect data from 12 objects with 3D acceleration and 2D rotation speed. Environmental sensors include 13 switch sensors and 8 3D acceleration sensors.
 
@@ -144,13 +142,12 @@ Disadvantages
 ## Algorithms
 
 In this project, four new methods are used in the classification based on the segment of the data stream to detect the activity. These four methods are DUE, KUE, DWMIL and ACDWM.
-
-1. Kappa Updated Ensemble (KUE) Algorithm
+**1. Kappa Updated Ensemble (KUE) Algorithm**
 
 In this algorithm, a new ensemble method named Kappa Updated Ensemble has been implemented. Learning from datastreams in the presence of concept drift is one of the biggest challenges of machine learning. Algorithms designed for such scenarios must consider the potentially unlimited size of data along with its constantly changing nature and the need for real-time processing. Group approaches of classifiers have gained significant popularity in datastream studies due to their high predictability and effective mechanism in reducing concept drift. The KUE algorithm is a combination of segment-based and line-based ensemble approaches that uses the kappa statistic for dynamic weighting and selection of base classifiers. New classifications have been updated using new samples and Poisson distribution to achieve more diversity.
 
 Each base classifier in KUE can participate in voting and increase the robustness of KUE. An extensive experimental study shows that KUE can perform better than other advanced algorithms on standard and unbalanced concept drift data streams despite its low computational complexity.
-2. DUE Algorithm
+**2. DUE Algorithm**
 
 This algorithm is used to learn unbalanced data streams with concept drift. The important point in this algorithm is that it is also suitable for imbalanced data. Only a few specific algorithms address the common issue of concept drift and imbalance due to its complexity. Meanwhile, the existing segmentation algorithms for classification of unbalanced non-stationary data streams always need to store previous data, which consumes a lot of memory. To overcome these issues, the DUE algorithm is introduced. Compared to existing techniques, this algorithm has five advantages:
 
@@ -161,9 +158,9 @@ This algorithm is used to learn unbalanced data streams with concept drift. The 
 * It keeps a limited number of classifiers to ensure high performance.
 
 Experiments on artificial and real datasets show the effectiveness of DUE in learning unbalanced non-stationary data streams.
-3. DWMIL Algorithm
+**3. DWMIL Algorithm**
 
-In this algorithm, a segment-based incremental learning method called Dynamic Weighted Majority is proposed on data streams with concept drift and class imbalance problem. The drift of the concept that occurs in the flow of data endangers the accuracy and stability of the online learning process. If the datastream is imbalanced, it will be challenging to detect and treat concept drift. A group framework with dynamic weighting of basic classifications is used according to their performance in the current segment. 
+In this algorithm, a segment-based incremental learning method called Dynamic Weighted Majority is proposed on data streams with concept drift and class imbalance problem. The drift of the concept that occurs in the flow of data endangers the accuracy and stability of the online learning process. If the datastream is imbalanced, it will be challenging to detect and treat concept drift. A group framework with dynamic weighting of basic classifications is used according to their performance in the current segment.
 
 Compared to existing methods, this algorithm has four features:
 
@@ -173,7 +170,7 @@ Compared to existing methods, this algorithm has four features:
 * It is simple and requires only one threshold parameter.
 
 Experiments on synthetic and real datasets with concept drift show that this algorithm performs better than advanced algorithms with lower computational cost.
-4. ACDWM Algorithm
+**4. ACDWM Algorithm**
 
 In this algorithm, an incremental learning method is proposed which is based on Dynamic Weighted Majority to deal with imbalanced datastreams with concept drift. If the datastream is imbalanced, it is hard to detect concept drift. Ensemble algorithms are effective for classifying datastreams with concept drift, a classifier is built for each segment of input data and its corresponding weight is adjusted to manage concept drift. However, it is difficult to adjust the weights to achieve a balance between the stability and compatibility of the classifiers in the ensemble algorithm.
 
@@ -194,32 +191,30 @@ ACDWM code is run in python and the other  3 algorithms are written and run with
 ### Calculation of robustness
 
 To define the robustness relationship, we need to define two parameters, the segment size and the imbalance rate:
+**1. Segment size**
 
-1. Segment size
-
-Due to the fact that ensemble methods of classifiers need to be divided into several segments, the value of this variable can be very effective in the final output, because in the end, a voting operation must be done to reach a conclusion. Select the final output. 
+Due to the fact that ensemble methods of classifiers need to be divided into several segments, the value of this variable can be very effective in the final output, because in the end, a voting operation must be done to reach a conclusion. Select the final output.
 
 For example, if the segment size value is 10, the number of end segments is equal to 10 and the voting operation must be performed between 10 outputs. Any of these outputs (0 or 1) that collects more votes is chosen as the final output. The value of this variable should be chosen approximately. For example, if the value of this variable is considered very low (2-5), the obtained output cannot be relied upon and will be poorly suited; Because the number of obtained classifications is small. As a result, voting is done between a small number of outputs and the result obtained from the declaration of opinion will be based upon a small number of classifications. If the value of this variable is considered too high, the execution time of the program will be very high and it is practically not usable in the real world with a low execution speed. At the same time, there is also the possibility of overfitting phenomenon. Classifiers may get too close to the training data and lose their flexibility to predict new data.
-2. Imbalance rate
+**2. Imbalance rate**
 
 Imbalance rate in classification methods determines the impact of imbalanced data. It is very difficult and time-consuming to create segmentation on imbalanced data. The higher this value is, the more the effect of imbalanced data will be, and the segmentation will be more imbalanced.
 To define the desired relationship, 4 algorithms were evaluated on 4 datasets with different sizes of segments. The graphs in this chapter are the result of the average results for all parts. The evaluated parameter is the area under the curve (AUC).
 
 The robustness of an algorithm can be attributed to the following reasons:
-
-1) Incremental algorithms
+**1. Incremental algorithms**
 
 This concept shows that the algorithm does not need any previous data for prediction, which saves storage. Considering that the previous data can have unpredictable effects on the current results, then not using them can affect the robustness of the algorithm. Of course, this influence is not permanent. If the amount of previous data involved in the prediction is very small or the previous data is very similar to the current data, non-increment can affect the robustness of the algorithm.
-2) Number of classifications
+**2. Number of classifications**
 
 The number of classifications involved in the voting method can influence the robustness of the algorithm. Adding the number of classifications can generally shift the results and make many changes in the voting results. So, this factor can be considered as an influential factor in the robustness of the algorithm. It should be noted that changes in the number of classifications can greatly affect the robustness of algorithms. Small changes will not have much impact in this area.
-3) Segment size
+**3. Segment size**
 
 This parameter can change the number of classifications, because a classification is created on each Segment in the group method. According to the previous explanations, the number of classifications has an effect on the robustness of the algorithm. As a result, by increasing or decreasing this variable too much, the robustness of the algorithm changes (This causes a difference in the results of DWMIL and ACDWM).
-4) Weighted majority
+**4. Weighted majority**
 
 Weighted voting means that some clauses will have a higher percentage of votes in the final output. A clause can have several votes instead of one vote. It is clear that this factor changes the robustness of the algorithm, because the segment with a higher vote degree can have more power in selecting the final output.
-5) Dynamic weighting
+**5. Dynamic weighting**
 In this method, a weighted model is used to build each classifier. In this way, each data set selected for each classification is determined based on the weight of the samples. For example, if in the first classification set, the fifth sample did not have the correct output, this sample will have a double weight and will be repeated more in the next round of execution. The amount of weight added in each iteration is different and this can affect the robustness of the algorithm.
 
 ### Calculation of noise, imbalance rate and concept drift
@@ -249,19 +244,19 @@ In the following, the diagrams related to the algorithms on the activity detecti
 
 ### Steps of the proposed solution
 
-1. Applying Gaussian noise to algorithms
+**1. Applying Gaussian noise to algorithms**
 First, Gaussian noise is applied to the algorithms. The percentage of noise is 0, 5, 10, 15, 20, 40, 60 and 80 respectively.
 
-2. Obtaining diagrams and calculating the measure of the area under the curve (AUC)
+**2. Obtaining diagrams and calculating the measure of the area under the curve (AUC)**
 The graphs of 4 algorithms in the 3 mentioned scenarios are obtained separately for activity detection datasets. These charts show the average area under the curve for all segments.
 
-3. Calculation of standard deviation
+**3. Calculation of standard deviation**
 The standard deviation is calculated by placing the average of the area under the curve for all parts in the noise-free state instead of the average in the equation below. Due to the large changes of the results shown in the diagrams, the standard deviation is chosen for comparison. This criterion is calculated for each algorithm and for all data sets.
 
 ![standard deviation](images/std.png)
-4. Calculating the standard deviation of the algorithm
+**4. Calculating the standard deviation of the algorithm**
 The standard deviation of the algorithm is calculated by using the numbers of step 3. This criterion shows the robustness of the algorithm on activity detection datasets. This criterion is calculated for all algorithms. In this step, μ in the standard deviation relation is the same as the average of the results in step 3.
-5. Comparison and conclusion
+**5. Comparison and conclusion**
 
 ### Evaluation results
 
@@ -282,18 +277,17 @@ The results have shown that in the case where the noise is zero, there are no no
 An algorithm that has a lower standard deviation is known as a more robust algorithm.
 
 In these experiments, different amounts of noise, imbalance rate and concept drift were used to evaluate the effectiveness of the algorithms from these 3 criteria. As a result, the reasons for the robustness of the algorithms were explained by adding different percentages of noise to them and checking the changes in the criterion of the area under the curve based on the diagrams. The numbers in the diagrams below are calculated to 2 decimal points.
-
-1. First scenario
+**1. First scenario**
 
 The first scenario is the main work presented in this thesis. As a result, ACDWM and DWMIL algorithms are stronger than DUE and KUE. The standard deviation of ACDWM and DWMIL algorithms is lower than DUE and KUE on activity detection datasets in the first scenario. So, ACDWM and DWMIL are more robust than the other two algorithms. In addition, the ACDWM algorithm is more robust than the DWMIL algorithm with a lower standard deviation than DWMIL on activity detection datasets.
 
 ![Scenario 1](images/scenario1.png)
-2. The second scenario
+**2. The second scenario**
 
 ACDWM has better robustness on activity detection datasets based on the standard deviation of the algorithm.
 
 ![Scenario 2](images/scenario2.png)
-3. The third scenario
+**3. The third scenario**
 ACDWM and DWMIL algorithms have lower algorithm standard deviation than DUE and KUE for activity detection datasets in the third scenario. So the strength of ACDWM and DWMIL is higher than the other two algorithms. Also, ACDWM performs better than DWMIL with a lower algorithm standard deviation for activity detection datasets.
 
 ![Scenario 3](images/scenario3.png)
