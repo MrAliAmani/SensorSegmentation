@@ -185,13 +185,9 @@ In addition, when the datastream is imbalanced, using a fixed size segment to bu
 
 Experiments on synthetic and real datasets containing concept drift show that ACDWM outperforms both segment-based and on-line methods.
 
-## Installation
+## Installation and run
 
-Install Anaconda
-
-```bash
-sudo sh <AnacondaFileName>.sh
-```
+ACDWM code is run in python and the other  3 algorithms are written and run with matlab.
 
 ## Results
 
